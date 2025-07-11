@@ -1,0 +1,4 @@
+
+> @woovi-playground/server@1.0.0 config:local /Users/hugoandrade/woovi-playground/apps/server
+> cp .env.example .env
+
