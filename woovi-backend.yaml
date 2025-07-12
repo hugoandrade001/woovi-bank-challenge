@@ -1,0 +1,108 @@
+type: collection.insomnia.rest/5.0
+name: Woovi BackEnd challenge
+meta:
+  id: wrk_9cccb4aee21249e7a9cbc8096df2fd07
+  created: 1752347747658
+  modified: 1752347747658
+  description: ""
+collection:
+  - url: http://localhost:4000/graphql
+    name: createUser
+    meta:
+      id: req_f4ca6c71a70344d9bfb428cec624a549
+      created: 1752347756176
+      modified: 1752347792273
+      isPrivate: false
+      description: ""
+      sortKey: -1752347756176
+    method: POST
+    body:
+      mimeType: application/json
+      text: >
+        {
+          "query": "mutation { createUser(name: \"Hugo\", email: \"hugo@teste.com\") { id name email balance } }"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.2.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:4000/graphql
+    name: sendTransaction
+    meta:
+      id: req_87f15a944c3f4497a6698e07ee0bd6a8
+      created: 1752347794856
+      modified: 1752347828878
+      isPrivate: false
+      description: ""
+      sortKey: -1752347794856
+    method: POST
+    body:
+      mimeType: application/json
+      text: >
+        {
+          "query": "mutation { sendTransaction(senderId: \"<id1>\", receiverId: \"<id2>\", amount: 40) { id amount sender { name balance } receiver { name balance } createdAt } }"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.2.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:4000/graphql
+    name: transactionHistory
+    meta:
+      id: req_dac90bfb1c5d424986582bca700b6aa2
+      created: 1752347842710
+      modified: 1752347883794
+      isPrivate: false
+      description: ""
+      sortKey: -1752347842710
+    method: GET
+    body:
+      mimeType: application/json
+      text: >
+        {
+          "query": "query { transactionHistory(userId: \"<id1>\") { id amount sender { name } receiver { name } createdAt } }"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.2.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_fcb5f823dba3d791462357398c55655a43618920
+    created: 1752347747660
+    modified: 1752347747660
+environments:
+  name: Base Environment
+  meta:
+    id: env_fcb5f823dba3d791462357398c55655a43618920
+    created: 1752347747660
+    modified: 1752347747660
+    isPrivate: false
