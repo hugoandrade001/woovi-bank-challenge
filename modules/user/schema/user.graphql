@@ -9,3 +9,7 @@ type User {
 type Mutation {
   createUser(name: String!, email: String!): User!
 }
+
+type Query {
+  user(id: String!): User
+}

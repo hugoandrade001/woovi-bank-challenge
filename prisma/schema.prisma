@@ -11,7 +11,7 @@ model User {
   id                 String         @id @default(cuid())
   name               String
   email              String         @unique
-  balance            Float          @default(0)
+  balance            Float          @default(100)
   createdAt          DateTime       @default(now())
   sentTransactions   Transaction[]  @relation("SentTransactions")
   receivedTransactions Transaction[] @relation("ReceivedTransactions")

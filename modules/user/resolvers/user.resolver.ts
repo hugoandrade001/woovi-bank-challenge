@@ -5,6 +5,19 @@ import { UserType } from '../types/user.type'
 import { GraphQLString, GraphQLNonNull } from 'graphql'
 
 export const userResolver = {
+  Query: {
+    user: {
+      type: UserType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLString) },
+      },
+      resolve: async (_: unknown, args: { id: string }) => {
+        const user = await UserService.getUserById(args.id)
+        return user
+      },
+    },
+  },
+
   Mutation: {
     createUser: {
       type: UserType,
